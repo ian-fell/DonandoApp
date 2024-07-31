@@ -1,12 +1,18 @@
 class MoviesController < ApplicationController
 
   before_action :set_class
+  include HTTParty
 
   def index
   end
 
   def show_all_movies
-    puts "Esto es para todas las peliculas"
+    response = HTTParty.get("https://owen-wilson-wow-api.onrender.com/wows/movies")
+    if response.success?
+      @data = response.parsed_response
+    else
+      @data = { error: "No se pudo obtener la información de la API" }
+    end
   end
 
   def show_all_directors
