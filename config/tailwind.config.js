@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        'Owen': "url('Owen-Wilson-Wow.png')"
+      }
     },
   },
   plugins: [
