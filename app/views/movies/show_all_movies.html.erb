@@ -3,10 +3,10 @@
     <p class="text-4xl font-semibold mb-10">Todas las Películas</p>
   </div>
   <div class="flex justify-between w-full items-start">
-    <%= button_to 'Películas', movies_path, method: :get, class: "rounded-md m-5 bg-orange-400/80 px-5 py-2 text-semibold border-black border-2 text-lg hover:opacity-50"%>
-    <%= button_to 'Directores', directors_path, method: :get, class: "rounded-md m-5 bg-orange-400/80 px-5 py-2 text-semibold border-black border-2 text-lg hover:opacity-50"%>
-    <%= button_to 'Película Mayor Duración', longest_path, method: :get, class: "rounded-md m-5 bg-orange-400/80 px-5 py-2 text-semibold border-black border-2 text-lg hover:opacity-50"%>
-    <%= button_to 'Primero y Último', first_last_path, method: :get, class: "rounded-md m-5 bg-orange-400/80 px-5 py-2 text-semibold border-black border-2 text-lg hover:opacity-50"%>
-    <%= button_to 'Mediana', median_path, method: :get, class: "rounded-md m-5 bg-orange-400/80 px-5 py-2 text-semibold border-black border-2 text-lg hover:opacity-50"%>
+    <%= button_to 'Películas', movies_path, method: :get, class: @class%>
+    <%= button_to 'Directores', directors_path, method: :get, class: @class%>
+    <%= button_to 'Película Mayor Duración', longest_path, method: :get, class: @class%>
+    <%= button_to 'Primero y Último', first_last_path, method: :get, class: @class%>
+    <%= button_to 'Mediana', median_path, method: :get, class: @class%>
   </div>
 </div>
