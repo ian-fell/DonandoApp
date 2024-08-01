@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full">
   <div class="flex justify-center">
-    <p class="text-4xl font-semibold mb-10">El WOW Mediana</p>
+    <p class="text-4xl font-semibold mb-10">Películas con Mayor cantidad de WOWs: <%= @wows %></p>
   </div>
   <div class="flex justify-between w-full items-start">
     <%= button_to 'Películas', movies_path, method: :get, class: @class%>
@@ -11,37 +11,34 @@
     <%= button_to 'Más WOWS', most_wows_path, method: :get, class: @class%>
   </div>
   <div class="flex justify-center w-full mt-10">
-    <table class="w-11/12 border-2 border-black">
+    <table class="w-3/4 border-2 border-black">
       <thead>
         <tr class="bg-slate-300">
-          <th class="text-2xl py-2">Nº WOW Global</th>
           <th class="text-2xl py-2">Película</th>
           <th class="text-2xl py-2">Año</th>
-          <th class="text-2xl py-2">Linea</th>
-          <th class="text-2xl py-2">Nº WOWs en Película</th>
+          <th class="text-2xl py-2">Nº WOWs</th>
+          <th class="text-2xl py-2">Personaje Interpretado</th>
           <th class="text-2xl py-2">Imagen</th>
         </tr>
       </thead>
       <tbody>
         <% contador = 0 %>
-        <% @wows.each do |wow, num| %>
+        <% @movies.each do |pelicula| %>
           <% if contador % 2 == 0 %>
             <tr class="text-center text-lg my-4 bg-slate-100 hover:bg-zinc-300">
-              <td><%= num %></td>
-              <td><%= wow["movie"] %></td>
-              <td><%= wow["year"] %></td>
-              <td class="max-w-80"><%= wow["full_line"] %></td>
-              <td><%= wow["total_wows_in_movie"] %></td>
-              <td class="flex justify-center items-center"><%= image_tag wow["poster"], alt: "Poster", class: "w-20 h-auto"%></td>
+              <td><%= pelicula["movie"] %></td>
+              <td><%= pelicula["year"] %></td>
+              <td><%= pelicula["total_wows_in_movie"] %></td>
+              <td><%= pelicula["character"] %></td>
+              <td class="flex justify-center items-center"><%= image_tag pelicula["poster"], alt: "Poster", class: "w-20 h-auto"%></td>
             </tr>
           <% else %>
-            <tr class="text-center text-lg my-4 bg-slate-200 hover:bg-zinc-300">
-              <td><%= num %></td>
-              <td><%= wow["movie"] %></td>
-              <td><%= wow["year"] %></td>
-              <td class="max-w-80"><%= wow["full_line"] %></td>
-              <td><%= wow["total_wows_in_movie"] %></td>
-              <td class="flex justify-center items-center"><%= image_tag wow["poster"], alt: "Poster", class: "w-20 h-auto"%></td>
+            <tr class="text-center text-lg my-4 bg-slate-100 hover:bg-zinc-300">
+              <td><%= pelicula["movie"] %></td>
+              <td><%= pelicula["year"] %></td>
+              <td><%= pelicula["total_wows_in_movie"] %></td>
+              <td><%= pelicula["character"] %></td>
+              <td class="flex justify-center items-center"><%= image_tag pelicula["poster"], alt: "Poster", class: "w-20 h-auto"%></td>
             </tr>
           <% end %>
           <% contador += 1 %>

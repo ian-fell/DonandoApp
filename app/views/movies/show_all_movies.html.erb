@@ -8,5 +8,33 @@
     <%= button_to 'Película Mayor Duración', longest_path, method: :get, class: @class%>
     <%= button_to 'Primero y Último', first_last_path, method: :get, class: @class%>
     <%= button_to 'Mediana', median_path, method: :get, class: @class%>
+    <%= button_to 'Más WOWS', most_wows_path, method: :get, class: @class%>
+  </div>
+  <div class="flex justify-center w-full mt-10">
+    <%= button_to 'Ordenar Alfabéticamente', movies_path, params: {sort: 'T'}, method: :get, class: "rounded-md m-5 bg-lime-500/80 px-5 py-2 text-semibold border-black border-2 text-lg hover:opacity-50"%>
+  </div>
+  <div class="flex justify-center w-full mt-5">
+    <table class="w-1/2 border-2 border-black">
+      <thead>
+        <tr class="bg-slate-300">
+          <th class="text-2xl py-2">Películas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% contador = 0 %>
+        <% @data.each do |pelicula| %>
+          <% if contador % 2 == 0 %>
+            <tr class="flex justify-center bg-slate-100 hover:bg-zinc-300">
+              <td class="text-lg py-1"><%= pelicula %></td>
+            </tr>
+          <% else %>
+            <tr class="flex justify-center bg-slate-200 hover:bg-zinc-300">
+              <td class="text-lg py-1"><%= pelicula %></td>
+            </tr>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

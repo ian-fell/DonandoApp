@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "longest", to: "movies#show_longest"
   get "first_last", to: "movies#show_first_last"
   get "median", to: "movies#show_median"
+  get "most_wows", to: "movies#show_most_wows"
 end
